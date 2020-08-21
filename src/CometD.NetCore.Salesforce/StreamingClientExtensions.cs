@@ -66,11 +66,12 @@ namespace Microsoft.Extensions.DependencyInjection
                         {
                             var auth = new AuthenticationClient();
 
-                            await auth.TokenRefreshAsync(
-                                options.RefreshToken,
-                                options.ClientId,
-                                options.ClientSecret,
-                                $"{options.LoginUrl}{options.OAuthUri}");
+                            await auth.UsernamePasswordAsync(
+                                clientId: options.ClientId,
+                                clientSecret: options.ClientSecret,
+                                username: options.UserName,
+                                password: options.Password,
+                                tokenRequestEndpointUrl: options.LoginEndpoint);
 
                             return auth;
                         });
@@ -114,7 +115,7 @@ namespace Microsoft.Extensions.DependencyInjection
                                 options.RefreshToken,
                                 options.ClientId,
                                 options.ClientSecret,
-                                $"{options.LoginUrl}{options.OAuthUri}");
+                                $"{options.LoginEndpoint}{options.OAuthUri}");
 
                             return new ForceClient(
                                 authClient.AccessInfo.InstanceUrl,

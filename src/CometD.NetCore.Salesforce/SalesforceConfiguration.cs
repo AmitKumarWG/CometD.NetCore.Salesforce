@@ -22,7 +22,7 @@ namespace CometD.NetCore.Salesforce
         ///  https://test.salesforce.com/services/oauth2/authorize
         ///  or https://login.salesforce.com/services/oauth2/authorize.
         /// </summary>
-        public string LoginUrl { get; set; } = string.Empty;
+        public string LoginEndpoint { get; set; } = string.Empty;
 
         /// <summary>
         /// Url of the Salesforce organization.
@@ -73,6 +73,10 @@ namespace CometD.NetCore.Salesforce
         /// The event that gets raised when a request for proposal is approved and the Deal is in working status.
         /// </summary>
         public string CustomEvent { get; set; } = string.Empty;
+
+        public string UserName { get; set; } = string.Empty;
+
+        public string Password { get; set; } = string.Empty;
 
         /// <summary>
         /// Salesforce ReplayId for specific message.
