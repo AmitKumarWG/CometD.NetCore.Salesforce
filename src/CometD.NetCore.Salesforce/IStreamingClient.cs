@@ -1,6 +1,7 @@
 ﻿using System;
 
 using CometD.NetCore.Bayeux.Client;
+using CometD.NetCore.Client;
 
 namespace CometD.NetCore.Salesforce
 {
@@ -57,5 +58,9 @@ namespace CometD.NetCore.Salesforce
         /// <param name="replayId"></param>
         /// <returns></returns>
         bool UnsubscribeTopic(string topicName, IMessageListener? listener = null, long replayId = -1);
+
+
+
+        public BayeuxClient? GetBayeuxClient();
     }
 }

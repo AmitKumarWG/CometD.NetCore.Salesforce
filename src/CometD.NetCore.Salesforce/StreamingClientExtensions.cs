@@ -111,11 +111,12 @@ namespace Microsoft.Extensions.DependencyInjection
                         {
                             var authClient = new AuthenticationClient();
 
-                            await authClient.TokenRefreshAsync(
-                                options.RefreshToken,
-                                options.ClientId,
-                                options.ClientSecret,
-                                $"{options.LoginEndpoint}{options.OAuthUri}");
+                            await authClient.UsernamePasswordAsync(
+                                clientId: options.ClientId,
+                                clientSecret: options.ClientSecret,
+                                username: options.UserName,
+                                password: options.Password,
+                                tokenRequestEndpointUrl: options.LoginEndpoint);
 
                             return new ForceClient(
                                 authClient.AccessInfo.InstanceUrl,

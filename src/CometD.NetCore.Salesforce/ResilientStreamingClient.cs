@@ -187,6 +187,12 @@ namespace CometD.NetCore.Salesforce
             GC.SuppressFinalize(this);
         }
 
+        public BayeuxClient? GetBayeuxClient()
+        {
+            return _bayeuxClient;
+        }
+
+
         /// <summary>
         /// Disposing of the resources.
         /// </summary>
